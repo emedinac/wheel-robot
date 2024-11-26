@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <link name="lidar">
+    <visual>
+      <geometry>
+        <cylinder length="${lidar_size}" radius="${lidar_size / 2.0}"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+  <link name="camera">
+    <visual>
+      <geometry>
+        <box size="${camera_size / 4.0} ${camera_size} ${camera_size / 4.0}"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="joint_camera" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera"/>
+      <origin xyz="${base_length / 2.0 - camera_size / 4.0 / 2.0} 0 ${base_height + wheel_radius + camera_size / 4.0 / 2.0}" rpy="0 0 0" />
+  </joint>
+  <joint name="joint_lidar" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar"/>
+      <origin xyz="${base_length / 2.0 - lidar_size / 2.0 - camera_size / 4.0} 0 ${base_height + wheel_radius + lidar_size / 2.0}" rpy="0 0 0" />
+  </joint>
+</robot>

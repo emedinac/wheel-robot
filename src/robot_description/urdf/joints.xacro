@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <joint name="joint_direction_r3" type="revolute">
+    <parent link="base_link"/>
+    <child link="r3_steering_wheel_link"/>
+    <origin xyz="${+ base_length / 2}  ${-(base_width + wheel_length) / 2.0} ${wheel_radius}" rpy="0 0 0" />
+  <axis xyz="0 0 1"/>
+  <limit lower="-0.5" upper="0.5" effort="10.0" velocity="1.0"/>
+  <dynamics damping="0.1" friction="0.2"/>
+  </joint>
+
+  <joint name="joint_direction_l3" type="revolute">
+    <parent link="base_link"/>
+    <child link="l3_steering_wheel_link"/>
+    <origin xyz="${+ base_length / 2} ${(base_width + wheel_length) / 2.0} ${wheel_radius}" rpy="0 0 0" />
+  <axis xyz="0 0 1"/>
+  <limit lower="-0.5" upper="0.5" effort="10.0" velocity="1.0"/>
+  <dynamics damping="0.1" friction="0.2"/>
+  </joint>
+
+
+  <joint name="base_joint" type="fixed">
+      <parent link="base_footprint" />
+      <child link="base_link" />
+      <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0"/>
+  </joint>
+  
+  <joint name="joint_wheel_l1" type="continuous">
+    <parent link="base_link"/>
+    <child link="l1_throttle_wheel_link"/>
+    <origin xyz="${- base_length / 2} ${(base_width + wheel_length) / 2.0} ${wheel_radius}" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <joint name="joint_wheel_l2" type="continuous">
+    <parent link="base_link"/>
+    <child link="l2_throttle_wheel_link"/>
+    <origin xyz="0 ${(base_width + wheel_length) / 2.0} ${base_height}" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <joint name="joint_wheel_l3" type="continuous">
+    <parent link="l3_steering_wheel_link"/>
+    <child link="l3_throttle_wheel_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="joint_wheel_r1" type="continuous">
+    <parent link="base_link"/>
+    <child link="r1_throttle_wheel_link"/>
+    <origin xyz="${- base_length / 2} ${-(base_width + wheel_length) / 2.0} ${wheel_radius}" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+  </joint>
+  <joint name="joint_wheel_r2" type="continuous">
+    <parent link="base_link"/>
+    <child link="r2_throttle_wheel_link"/>
+    <origin xyz="0 ${-(base_width + wheel_length) / 2.0} ${base_height}" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+  </joint>
+  <joint name="joint_wheel_r3" type="continuous">
+    <parent link="r3_steering_wheel_link"/>
+    <child link="r3_throttle_wheel_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0"/>
+  </joint>
+</robot>
