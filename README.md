@@ -9,3 +9,8 @@ colcon build --symlink-install
 source install/setup.bash
 ros2 launch robot_description display.launch.py
 ```
+
+# Running Gazebo and RVIZ
+```
+ros2 launch robot_bringup gazebo.launch.xml
+```
