@@ -9,6 +9,14 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white"/>
     </visual>
+    <xacro:cylinder_inertia m="0.2" r="${lidar_size / 2.0}" h="${lidar_size}" 
+                            xyz="0 0 0" rpy="0 0 0" />
+    <collision>
+        <geometry>
+          <cylinder length="${lidar_size}" radius="${lidar_size / 2.0}"/>
+        </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
   </link>
   <link name="camera">
     <visual>
@@ -18,6 +26,14 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white"/>
     </visual>
+    <xacro:box_inertia m="0.3" l="${camera_size / 4.0}" w="${camera_size}" h="${camera_size / 4.0}"
+                        xyz="0 0 0" rpy="0 0 0" />
+    <collision>
+        <geometry>
+          <box size="${camera_size / 4.0} ${camera_size} ${camera_size / 4.0}"/>
+        </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
   </link>
 
   <joint name="joint_camera" type="fixed">
