@@ -20,7 +20,7 @@
             <origin xyz="0 0 ${base_height / 2.0 + wheel_radius}" rpy="0 0 0" />
             <material name="red" />
         </visual>
-        <xacro:box_inertia m="5.0" l="${base_length}" w="${base_width}" h="${base_height}"
+        <xacro:box_inertia m="5.0" l="${2*base_length}" w="${2*base_width}" h="${2*base_height}"
                            xyz="0 0 ${base_height / 2.0 + wheel_radius}" rpy="0 0 0" />
         <collision>
             <geometry>
@@ -39,7 +39,7 @@
             <origin xyz="0 0 0" rpy="${pi / 2.0} 0 0" />
             <material name="blue" />
         </visual>
-        <xacro:cylinder_inertia m="1.0" r="${wheel_radius}" h="${wheel_length}" 
+        <xacro:cylinder_inertia m="1.0" r="${2*wheel_radius}" h="${2*wheel_length}" 
                                 xyz="0 0 0" rpy="${pi / 2.0} 0 0" />
         <collision>
             <geometry>
@@ -58,7 +58,7 @@
             <origin xyz="0 0 0" rpy="${pi / 2.0} 0 0" />
             <material name="gray" />
         </visual>
-        <xacro:cylinder_inertia m="1.0" r="${wheel_radius}" h="${wheel_length}" 
+        <xacro:cylinder_inertia m="1.0" r="${2*wheel_radius}" h="${2*wheel_length}" 
                                 xyz="0 0 0" rpy="${pi / 2.0} 0 0" />
         <collision>
             <geometry>

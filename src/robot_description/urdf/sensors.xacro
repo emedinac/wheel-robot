@@ -9,7 +9,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white"/>
     </visual>
-    <xacro:cylinder_inertia m="0.2" r="${lidar_size / 2.0}" h="${lidar_size}" 
+    <xacro:cylinder_inertia m="0.2" r="${2*lidar_size / 2.0}" h="${2*lidar_size}" 
                             xyz="0 0 0" rpy="0 0 0" />
     <collision>
         <geometry>
@@ -26,7 +26,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="white"/>
     </visual>
-    <xacro:box_inertia m="0.3" l="${camera_size / 4.0}" w="${camera_size}" h="${camera_size / 4.0}"
+    <xacro:box_inertia m="0.3" l="${2*camera_size / 4.0}" w="${2*camera_size}" h="${camera_size / 4.0}"
                         xyz="0 0 0" rpy="0 0 0" />
     <collision>
         <geometry>
